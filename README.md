@@ -48,9 +48,9 @@
 #### table : user_groups
 
 * t.integer :id
-* t.references :user_id
+* t.references :user
 >foreign_key: ture
-* t.references :group_id
+* t.references :group
 >foreign_key: ture
 * t.timestamp
 
