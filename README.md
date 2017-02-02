@@ -10,7 +10,7 @@
 
 ### Database initialization
 
-#### tabel : user  (by gem 'devise')
+#### table : users  (by gem 'devise')
 
 * t.integer :id
 >null: false
@@ -23,7 +23,7 @@
 * t.timestamp
 >null:false
 
-#### table : chat
+#### table : chats
 
 * t.integer :id
 >null: false
@@ -38,7 +38,7 @@
 * t.timestamp
 >null: fales
 
-#### table : group
+#### table : groups
 
 * t.integer :id
 >null: false
@@ -48,7 +48,7 @@
 >foreign_key: true
 * t.timestamp
 
-#### table : user_group
+#### table : user_groups
 
 * t.integer :id
 * t.references :user_id
@@ -59,19 +59,19 @@
 
 #### assosiation
 
-* user has_many :chats
-* user has_many :groups
-* user has_many :user_groups throgh :user_groups
+* users has_many :chats
+* users has_many :groups
+* users has_many :user_groups throgh :user_groups
 
 * chats belongs_to :group
 * chats belongs_to :user
 
-* group has_many :chats
-* group belongs_to :user
-* group has_many :user_groups through :user_groups
+* groups has_many :chats
+* groups belongs_to :user
+* groups has_many :user_groups through :user_groups
 
-* user_group belongs_to: user
-* user_group Belongs_to: group
+* user_groups belongs_to: user
+* user_groups Belongs_to: group
 
 <!-- * System dependencies
 
