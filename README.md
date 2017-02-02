@@ -16,7 +16,7 @@
 >null: false
 * t.string :name
 >null: false
-* t.string :mail
+* t.string :email
 >null: false
 * t.string :password
 >null: false
@@ -27,10 +27,10 @@
 
 * t.integer :id
 >null: false
-* t.references :user_id
+* t.references :user
 >index: true ,
 >foreign_key: true
-* t.references :group_id
+* t.references :group
 >index: ture ,
 >foreign_key: ture
 * t.text :text
@@ -43,9 +43,6 @@
 * t.integer :id
 >null: false
 * t.srting :group_name
-* t.references :user_group.id
->index: ture
->foreign_key: true
 * t.timestamp
 
 #### table : user_groups
@@ -60,27 +57,15 @@
 #### assosiation
 
 * users has_many :chats
-* users has_many :groups
-* users has_many :user_groups throgh :user_groups
+* users has_many :user_groups
+* users has_many :groups, throgh: :user_groups
 
 * chats belongs_to :group
 * chats belongs_to :user
 
 * groups has_many :chats
-* groups belongs_to :user
-* groups has_many :user_groups through :user_groups
+* groups has_many :user_groups
+* groups has_many :user, through: :user_groups
 
 * user_groups belongs_to: user
-* user_groups Belongs_to: group
-
-<!-- * System dependencies
-
-* Configuration
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ... -->
+* user_groups belongs_to: group
