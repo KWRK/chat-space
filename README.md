@@ -57,6 +57,22 @@
 >foreign_key: ture
 * t.timestamp
 
+#### Reraition
+
+* user has_many :chats
+* user has_many :groups
+* user has_many :user_groups throgh :user_groups
+
+* chats belongs_to :group
+* chats belongs_to :user
+
+* group has_many :chats
+* group belongs_to :user
+* group has_many :user_groups through :user_groups
+
+* user_group belongs_to: user
+* user_group Belongs_to: group
+
 <!-- * System dependencies
 
 * Configuration
