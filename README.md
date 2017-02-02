@@ -42,10 +42,10 @@
 
 * t.integer :id
 >null: false
-* t.srting :group_name
+* t.srting :name
 * t.timestamp
 
-#### table : user_groups
+#### table : groups_users
 
 * t.integer :id
 * t.references :user
@@ -57,15 +57,15 @@
 #### assosiation
 
 * users has_many :chats
-* users has_many :user_groups
-* users has_many :groups, throgh: :user_groups
+* users has_many :groups_users
+* users has_many :groups, throgh: :groups_users
 
 * chats belongs_to :group
 * chats belongs_to :user
 
 * groups has_many :chats
-* groups has_many :user_groups
-* groups has_many :user, through: :user_groups
+* groups has_many :groups_users
+* groups has_many :user, through: :groups_users
 
-* user_groups belongs_to: user
-* user_groups belongs_to: group
+* groups_users belongs_to: users
+* groups_users belongs_to: groups
