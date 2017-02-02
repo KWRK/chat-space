@@ -57,7 +57,7 @@
 >foreign_key: ture
 * t.timestamp
 
-#### Reraition
+#### assosiation
 
 * user has_many :chats
 * user has_many :groups
