@@ -10,74 +10,59 @@
 
 ### Database initialization
 
-#### table : users  (by gem 'devise')
-| type          | column name   |             |
+#### Users Table  (by gem 'devise')
+* columns and data type
+
+| columns       |  data type    |  contraint  |
 |*--------------|*--------------|*------------|
-| t.integer     | :id           | null: false |
-| t.string      | :name         | null: false |
-| t.string      | :email        | null: false |
-| t.string      | :password     | null: false |
-| t.timestamp   |               | null: false |
+|name           |   string      | null: false |
 
+* association
 
-#### table : chats
-| type          | column name   |              |
-|*--------------|*--------------|*-------------|
-| t.integer     | :id           |null: false   |
-| t.references  | :user         |index: true ,foreign_key: true|
-| t.references  | :group        |index: ture ,foreign_key: ture|
-| t.text        | :text         |              |
-| t.string      | :image        |              |
-| t.timestamp   |               |null: fales   |
-
-#### table : groups
-
-| type          | column name   |              |
-|*--------------|*--------------|*-------------|
-| t.integer     |:id            |null: false   |
-| t.srting      |:name          |              |
-| t.timestamp   |               |              |
-
-#### table : groups_users
-| type          | column name   |              |
-|*--------------|*--------------|*-------------|
-| t.integer     | :id           | null: false  |
-| t.references  | :user         | foreign_key: ture |
-| t.references  | :group        | foreign_key: ture |
-| t.timestamp   |               |              |
-
-#### assosiation
-
-```
-class User < ActiveRecord::Base
-
-  has_many  :chats
-  has_many  :groups_users
+  has_many  :chats <br />
+  has_many  :groups_users  <br />
   has_many  :groups, throgh: :groups_users
-end
-```
 
-```
-class Chat < ActiveRecord::Base
 
-  belongs_to :group
+#### Chats Table
+* columns and data type
+
+| columns       |  data type    |  contraint                   |
+|*--------------|*--------------|*-----------------------------|
+| user          | references    |index: true ,foreign_key: true|
+| group         | references    |index: ture ,foreign_key: ture|
+| body          | text          |                              |
+| image         | string        |                              |
+
+* association
+
+  belongs_to :group <br />
   belongs_to :user
-end
-```
 
-```
-class Groups < ActiveRecord::Base
 
-  has_many :chats
-  has_many :groups_users
+#### Groups Table
+* columns and data type
+
+| columns       |  data type    |  contraint  |
+|*--------------|*--------------|*------------|
+| name          | srting        | null: fales |
+
+* association
+
+  has_many :chats <br />
+  has_many :groups_users  <br />
   has_many :user, through: :groups_users
-end
-```
-```
-class GroupsUsers < ActiveRecord::Base
 
-  groups_users belongs_to: users
-  groups_users belongs_to: groups
-end
-```
 
+#### GroupsUsers Table
+* columns and data type
+
+| columns       |  data type    |  contraint        |
+|*--------------|*--------------|*------------------|
+| user          | references    | foreign_key: ture |
+| group         | references    | foreign_key: ture |
+
+* association
+
+  belongs_to: users <br />
+  belongs_to: groups
