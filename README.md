@@ -14,7 +14,7 @@
 * columns and data type
 
 | columns       |  data type    |  contraint  |
-|*--------------|---------------|-------------|
+|:--------------|:--------------|:------------|
 | name          | string        | null: false |
 
 * association
@@ -28,7 +28,7 @@
 * columns and data type
 
 | columns       |  data type    |  contraint                   |
-|*--------------|---------------|------------------------------|
+|:--------------|:--------------|:-----------------------------|
 | user          | references    |index: true ,foreign_key: true|
 | group         | references    |index: true ,foreign_key: true|
 | body          | text          |                              |
@@ -44,7 +44,7 @@
 * columns and data type
 
 | columns       |  data type    |  contraint  |
-|*--------------|---------------|-------------|
+|:--------------|:--------------|:------------|
 | name          | string        | null: fales |
 
 * association
@@ -58,7 +58,7 @@
 * columns and data type
 
 | columns       |  data type    |  contraint        |
-|*--------------|---------------|-------------------|
+|:--------------|:--------------|:------------------|
 | user          | references    | foreign_key: true |
 | group         | references    | foreign_key: true |
 
