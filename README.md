@@ -29,16 +29,15 @@
 
 | columns       |  data type    |  contraint                   |
 |:--------------|:--------------|:-----------------------------|
-| user          | references    |index: true ,foreign_key: true|
-| group         | references    |index: true ,foreign_key: true|
 | body          | text          |                              |
 | image         | string        |                              |
+| user          | references    |index: true ,foreign_key: true|
+| group         | references    |index: true ,foreign_key: true|
 
 * association
 
-  belongs_to :group <br />
-  belongs_to :user
-
+  belongs_to :user <br />
+  belongs_to :group
 
 #### Groups Table
 * columns and data type
@@ -64,5 +63,5 @@
 
 * association
 
-  belongs_to: users <br />
-  belongs_to: groups
+  belongs_to: user <br />
+  belongs_to: group
