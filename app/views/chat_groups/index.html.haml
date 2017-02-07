@@ -1,0 +1,138 @@
+%body
+  %header
+    .header-notice
+      チャットグループが作成されました。
+    .header__left
+      -# ユーザー名の表記
+      %p USER-NAME
+      %ul
+        %li.fa.fa-pencil-square-o.fa-lg
+        %li.fa.fa-cog.fa-lg
+    .header__right
+      .group-index
+        .group-name SampleGroup1
+        %ul
+          %li Members:
+          %li some1
+          %li some2
+      .edit-btn Edit
+
+  .content__left
+
+    %ul
+      %li.group-name
+        SampleGroup1
+      %li.current-chat
+        bye!
+    %ul
+      %li.group-name
+        SampleGroup2
+      %li.current-chat
+        hey!
+    %ul
+      %li.group-name
+        SampleGroup3
+      %li.current-chat
+        hey!
+    %ul
+      %li.group-name
+        SampleGroup4
+      %li.current-chat
+        hey!
+    %ul
+      %li.group-name
+        SampleGroup5
+      %li.current-chat
+        hey!
+    %ul
+      %li.group-name
+        SampleGroup6
+      %li.current-chat
+        hey!
+    %ul
+      %li.group-name
+        SampleGroup7
+      %li.current-chat
+        hey!
+    %ul
+      %li.group-name
+        SampleGroup8
+      %li.current-chat
+        hey!
+    %ul
+      %li.group-name
+        SampleGroup9
+      %li.current-chat
+        hey!
+    %ul
+      %li.group-name
+        SampleGroup10
+      %li.current-chat
+        hey!
+
+  .content__right
+
+    .chat-data
+      %ul
+        %li.user-name some1
+        %li 2017/02/05
+        %li 00:00:01
+      .chat-body
+        Helloworld
+    .chat-data
+      %ul
+        %li.user-name some2
+        %li 2017/02/05
+        %li 00:00:05
+      .chat-body
+        bye!
+    .chat-data
+      %ul
+        %li.user-name some1
+        %li 2017/02/05
+        %li 00:00:11
+      .chat-body
+        Helloworld
+    .chat-data
+      %ul
+        %li.user-name some2
+        %li 2017/02/05
+        %li 00:00:15
+      .chat-body
+        bye!
+    .chat-data
+      %ul
+        %li.user-name some1
+        %li 2017/02/05
+        %li 00:00:21
+      .chat-body
+        Helloworld
+    .chat-data
+      %ul
+        %li.user-name some2
+        %li 2017/02/05
+        %li 00:00:25
+      .chat-body
+        bye!
+    .chat-data
+      %ul
+        %li.user-name some1
+        %li 2017/02/05
+        %li 00:00:31
+      .chat-body
+        Helloworld
+    .chat-data
+      %ul
+        %li.user-name some2
+        %li 2017/02/05
+        %li 00:00:35
+      .chat-body
+        bye!
+
+
+    .chat-input
+      .input-space
+        %i.fa.fa-picture-o.fa-lg
+        %textarea{placeholder: "type a message", type: "textarea", name: "message", style: "width:calc( 100vw - 518px );height:50px;min-width:500px"}
+      %input.send{type: "submit", value: "Send"}
+
