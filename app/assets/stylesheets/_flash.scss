@@ -1,0 +1,22 @@
+$light-blue: #38AFE0;
+
+.alert{
+  &.alert-success{
+    line-height: 30px;
+    height: 30px;
+    width:100%;
+    z-index:1;
+    text-align: center;
+    color: #fff;
+    background-color: $light-blue;
+  }
+  &.alert-danger{
+    line-height: 30px;
+    height: 30px;
+    width:100%;
+    z-index:1;
+    text-align: center;
+    color: #fff;
+    background-color: red;
+  }
+}
