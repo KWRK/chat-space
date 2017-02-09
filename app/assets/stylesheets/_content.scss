@@ -10,7 +10,7 @@ $chat-margin: 5px 5px 5px 40px;
   background-color: #2f3e51;
   ul{
     padding:20px;
-    color:#ffffff;
+    color:#fff;
     .group-name{
       font-size: 15px;
     }
@@ -37,7 +37,7 @@ $chat-margin: 5px 5px 5px 40px;
       li{
         float:left;
         font-size:12px;
-        color: #999999;
+        color: #999;
         margin:7px 5px;
       }
       .user-name{
@@ -51,7 +51,7 @@ $chat-margin: 5px 5px 5px 40px;
   .chat-input{
     height:50px;
     width: calc( 100vw - 380px );;
-    background-color: #DDDDDD;
+    background-color: #DDD;
     position: fixed;
     display:flex;
     bottom: 0px;
@@ -82,7 +82,7 @@ $chat-margin: 5px 5px 5px 40px;
       padding:0px 30px;
       border: none;
       background-color: #38AEF0;
-      color: #ffffff;
+      color: #fff;
     }
   }
 }
