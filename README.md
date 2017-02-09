@@ -21,7 +21,7 @@
 
   has_many  :chats <br />
   has_many  :groups_users  <br />
-  has_many  :groups, throgh: :groups_users
+  has_many  :groups, through: :groups_users
 
 
 #### Chats Table
