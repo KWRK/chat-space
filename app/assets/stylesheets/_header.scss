@@ -33,6 +33,9 @@ header{
       float:right;
       line-height: $header-height;
       margin:$list-margin;
+      i {
+        color: #ffffff;
+      }
     }
   }
   .header__right{
