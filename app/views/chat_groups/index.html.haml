@@ -6,7 +6,8 @@
       -# ユーザー名の表記
       %p USER-NAME
       %ul
-        %li.fa.fa-pencil-square-o.fa-lg
+        = link_to 'groups/new' do
+          %i.fa.fa-pencil-square-o.fa-lg
         = link_to 'users/edit' do
           %i.fa.fa-cog.fa-lg
     .header__right
