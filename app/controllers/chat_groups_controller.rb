@@ -9,6 +9,7 @@ class ChatGroupsController < ApplicationController
   end
 
   def new
+    @chat_group =Group.new
   end
 
   def create
