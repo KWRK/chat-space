@@ -5,6 +5,12 @@ class ChatGroupsController < ApplicationController
   def index
   end
 
+  def edit
+  end
+
+  def new
+  end
+
   def create
     Group.create(group_params)
     redirect_to action: :index
