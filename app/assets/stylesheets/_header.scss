@@ -4,16 +4,6 @@ $list-margin: auto 20px;
 
 header{
   height:$header-height;
-  .header-notice{
-    line-height: 30px;
-    height: 30px;
-    width:100%;
-    z-index:1;
-    text-align: center;
-    color: #fff;
-    background-color: $light-blue;
-    display: none;
-  }
   .header__left {
     float:left;
     position:fixed;
