@@ -14,18 +14,18 @@ class GroupsController < ApplicationController
   end
 
   def create
-    group = Group.new(group_params)
-    if group.save
+    @group = Group.new(group_params)
+    if @group.save
       flash[:notice] = '新しいグループを作成しました'
       redirect_to action: :index
     else
       flash[:alert] = 'グループの作成に失敗しました'
-      redirect_to(:back)
+      render action: :new
     end
   end
 
   private
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, {user_ids: []})
   end
 end
