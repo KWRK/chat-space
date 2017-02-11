@@ -5,22 +5,23 @@ class GroupsController < ApplicationController
   def index
   end
 
-  def edit
-    @group = Group.find(params[:id])
-  end
-
   def new
     @group = Group.new
+  end
+
+  def edit
+    @group = Group.find(params[:id])
   end
 
   def create
     group = Group.new(group_params)
     if group.save
       flash[:notice] = '新しいグループを作成しました'
+      redirect_to action: :index
     else
       flash[:alert] = 'グループの作成に失敗しました'
+      redirect_to(:back)
     end
-    redirect_to action: :index
   end
 
   private
