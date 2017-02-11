@@ -1,6 +1,6 @@
 .chat-group-form {
   width: 980px;
-  height: 350px;
+  height: 400px;
   margin: 60px auto;
   padding: 40px;
   background-color: #fff;
@@ -53,6 +53,7 @@
 
     .chat-group-form__field--right {
       float: right;
+      line-height:50px;
       width: 70%;
     }
 
