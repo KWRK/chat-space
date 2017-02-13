@@ -1,4 +1,5 @@
 $light-blue: #38AFE0;
+$pale-gray: #999;
 $header-height: 100px;
 $list-margin: auto 20px;
 $body-height: calc( 100% - 100px);
@@ -6,97 +7,91 @@ $chat-width: calc( 100vw - 300px );
 $chat-margin: 5px 5px 5px 40px;
 
 .content__left{
-  height:100%;
-  float:left;
+  height: 100%;
+  float: left;
   &__header {
-    position:fixed;
+    position: fixed;
     background-color: #253141;
     height: $header-height;
     width: 300px;
-    color: #fff;
+    color: white;
     p {
-      float:left;
+      float: left;
       line-height: $header-height;
-      margin:$list-margin ;
-      font-size:16px;
+      margin: $list-margin;
+      font-size: 16px;
       font-weight: bold;
     }
     ul{
-      float:right;
+      float: right;
       line-height: $header-height;
-      margin:$list-margin;
+      margin: $list-margin;
       i {
-        color: #fff;
+        color: white;
       }
     }
   }
   &__body{
     margin-top: $header-height;
-    float:left;
+    float: left;
     overflow: auto;
     height: $body-height;
-    width:300px;
+    width: 300px;
     background-color: #2f3e51;
     ul{
-      padding:20px;
-      color:#fff;
-      text-decoration: none;
-      &:hover {
-        text-decoration: none;
-      }
+      padding: 20px;
+      color: white;
       .group-name{
         font-size: 15px;
-        text-decoration: none;
       }
       .current-chat{
-        margin-top:5px;
+        margin-top: 5px;
         font-size: 11px;
-        text-decoration: none;
       }
     }
   }
 }
 
 .content__right{
-  height:100%;
-  float:left;
+  height: 100%;
+  float: left;
   &__header{
     position: fixed;
-    right:0px;
+    right: 0px;
     height: $header-height;
     width: calc( 100vw - 300px );
-    display:flex;
-    background-color: #ffffff;
+    display: flex;
+    background-color: white;
     border-bottom: solid 1px ;
     border-color: #eee;
     .group-index{
-      float:left;
-      flex:initial;
+      float: left;
+      flex: initial;
       width: calc( 100vw - 450px );
-      min-width:525px;
+      min-width: 525px;
       .group-name{
-        padding:35px 0px 10px 40px;
-        font-size:20px;
+        padding: 35px 0px 10px 40px;
+        font-size: 20px;
       }
       ul{
-        padding:0 35px;
-        font-size:12px;
-        color:#999;
+        padding: 0 35px;
+        font-size: 12px;
+        color: $pale-gray;
         li{
-          float:left;
-          padding:0 5px;
+          float: left;
+          padding: 0 5px;
         }
       }
     }
-    .edit-btn{
-      float:left;
-      line-height:40px;
+    .edit-btn a{
+      float: left;
+      line-height: 40px;
       padding: 0px 20px;
       margin: 28px 40px;
       border: solid 2px;
-      border-color:$light-blue ;
+      border-color: $light-blue ;
       font-size: 14px;
-      color:$light-blue ;
+      color: $light-blue ;
     }
   }
   &__body{
@@ -106,17 +101,17 @@ $chat-margin: 5px 5px 5px 40px;
     width: $chat-width;
     background-color: #fafafa;
     .chat-data{
-      margin-top:40px;
+      margin-top: 40px;
       .chat-body{
         margin: $chat-margin;
-        clear:both;
+        clear: both;
       }
       ul{
         li{
-          float:left;
-          font-size:12px;
-          color: #999;
-          margin:7px 5px;
+          float: left;
+          font-size: 12px;
+          color: $pale-gray;
+          margin: 7px 5px;
         }
         .user-name{
           color: #434A54;
@@ -127,22 +122,22 @@ $chat-margin: 5px 5px 5px 40px;
       }
     }
     .chat-input{
-      height:50px;
+      height: 50px;
       width: calc( 100vw - 380px );;
       background-color: #DDD;
       position: fixed;
-      display:flex;
+      display: flex;
       bottom: 0px;
       right: 0px;
-      padding:20px 40px;
+      padding: 20px 40px;
       .input-space{
-        position:relative;
-        float:left;
+        position: relative;
+        float: left;
         textarea{
-          flex:initial;
-          line-height:50px;
-          resize:none;
-          padding:0px 10px;
+          flex: initial;
+          line-height: 50px;
+          resize: none;
+          padding: 0px 10px;
           font-size: 16px;
           color: #434A54
         }
@@ -153,21 +148,15 @@ $chat-margin: 5px 5px 5px 40px;
         }
       }
       .send{
-        float:left;
-        flex:initial;
-        height:50px;
+        float: left;
+        flex: initial;
+        height: 50px;
         margin-left: 15px;
-        padding:0px 30px;
+        padding: 0px 30px;
         border: none;
-        background-color: #38AEF0;
-        color: #fff;
+        background-color: $light-blue;
+        color: white;
       }
     }
   }
-}
-
-.clearfix{
-  clear:both;
-  display:block;
-  content:"";
 }

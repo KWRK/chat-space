@@ -4,19 +4,19 @@ $light-blue: #38AFE0;
   &-success{
     line-height: 30px;
     height: 30px;
-    width:100%;
+    width: 100%;
     z-index:1;
     text-align: center;
-    color: #fff;
+    color: white;
     background-color: $light-blue;
   }
   &-danger{
     line-height: 30px;
     height: 30px;
-    width:100%;
-    z-index:1;
+    width: 100%;
+    z-index: 1;
     text-align: center;
-    color: #fff;
+    color: white;
     background-color: red;
   }
 }
