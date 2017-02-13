@@ -1,0 +1,77 @@
+= render 'left_content'
+
+.content__right
+  .content__right__header
+    .group-index
+      .group-name
+        = @group.name
+      %ul
+        %li Members:
+        %li some1
+        %li some2
+    .edit-btn
+      = link_to edit_group_path do
+        Edit
+
+  .content__right__body
+    .chat-data
+      %ul
+        %li.user-name some1
+        %li 2017/02/05
+        %li 00:00:01
+      .chat-body
+        Helloworld
+    .chat-data
+      %ul
+        %li.user-name some2
+        %li 2017/02/05
+        %li 00:00:05
+      .chat-body
+        bye!
+    .chat-data
+      %ul
+        %li.user-name some1
+        %li 2017/02/05
+        %li 00:00:01
+      .chat-body
+        Helloworld
+    .chat-data
+      %ul
+        %li.user-name some2
+        %li 2017/02/05
+        %li 00:00:05
+      .chat-body
+        bye!
+    .chat-data
+      %ul
+        %li.user-name some1
+        %li 2017/02/05
+        %li 00:00:01
+      .chat-body
+        Helloworld
+    .chat-data
+      %ul
+        %li.user-name some2
+        %li 2017/02/05
+        %li 00:00:05
+      .chat-body
+        bye!
+    .chat-data
+      %ul
+        %li.user-name some1
+        %li 2017/02/05
+        %li 00:00:01
+      .chat-body
+        Helloworld
+    .chat-data
+      %ul
+        %li.user-name some2
+        %li 2017/02/05
+        %li 00:00:05
+      .chat-body
+        bye!
+    .chat-input
+      .input-space
+        %i.fa.fa-picture-o.fa-lg
+        %textarea{placeholder: "type a message", type: "textarea", name: "message", style: "width:calc( 100vw - 518px );height:50px;min-width:500px"}
+      %input.send{type: "submit", value: "Send"}

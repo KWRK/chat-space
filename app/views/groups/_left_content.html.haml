@@ -1,0 +1,13 @@
+%body
+  .content__left
+    .content__left__header
+      -# ユーザー名の表記
+      %p USER-NAME
+      %ul
+        = link_to new_group_path do
+          %i.fa.fa-pencil-square-o.fa-lg
+        = link_to edit_user_registration_path do
+          %i.fa.fa-cog.fa-lg
+
+    .content__left__body
+      = render partial: 'group', collection: @groups
