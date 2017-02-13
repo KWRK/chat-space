@@ -19,11 +19,12 @@ class GroupsController < ApplicationController
       redirect_to root_path, notice:'新しいグループを作成しました'
     else
       flash[:alert] = 'グループの作成に失敗しました'
-      render new_group_path
+      render action: :new
     end
   end
 
   private
+
   def group_params
     params.require(:group).permit(:name, {user_ids: []})
   end
