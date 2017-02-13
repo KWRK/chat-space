@@ -7,8 +7,7 @@
         = @group.name
       %ul
         %li Members:
-        %li some1
-        %li some2
+        = render partial: 'user', collection: @users
     .edit-btn
       = link_to edit_group_path do
         Edit
