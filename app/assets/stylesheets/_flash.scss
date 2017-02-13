@@ -1,7 +1,7 @@
 $light-blue: #38AFE0;
 
 .alert{
-  &.alert-success{
+  &-success{
     line-height: 30px;
     height: 30px;
     width:100%;
@@ -10,7 +10,7 @@ $light-blue: #38AFE0;
     color: #fff;
     background-color: $light-blue;
   }
-  &.alert-danger{
+  &-danger{
     line-height: 30px;
     height: 30px;
     width:100%;

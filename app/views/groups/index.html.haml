@@ -1,13 +1,12 @@
 %body
   %header
-    .header-notice
-      チャットグループが作成されました。
     .header__left
       -# ユーザー名の表記
       %p USER-NAME
       %ul
-        %li.fa.fa-pencil-square-o.fa-lg
-        = link_to 'users/edit' do
+        = link_to new_group_path do
+          %i.fa.fa-pencil-square-o.fa-lg
+        = link_to edit_user_registration_path do
           %i.fa.fa-cog.fa-lg
     .header__right
       .group-index
