@@ -9,7 +9,8 @@ class GroupsController < ApplicationController
   def show
     user_joined_groups
     @group = Group.find(params[:id])
-    @users = Group.find(params[:id]).user.all
+    @users = @group.user
+    @chats = @group.chats
   end
 
   def new
@@ -27,7 +28,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
+    @group = Group.find(params[:id]).order('update_at DESC')
   end
 
   def update
@@ -35,8 +36,7 @@ class GroupsController < ApplicationController
     if group.update(group_params)
       redirect_to group_path, notice:'グループ情報を更新しました'
     else
-      flash[:alert] = 'グループ情報の更新に失敗しました'
-      redirect_to edit_group_path
+      redirect_to edit_group_path, alert: 'グループ情報の更新に失敗しました'
     end
   end
 
