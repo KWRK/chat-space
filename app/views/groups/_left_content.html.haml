@@ -1,8 +1,8 @@
 %body
   .content__left
     .content__left__header
-      -# ユーザー名の表記
-      %p USER-NAME
+      %p
+        = current_user.name
       %ul
         = link_to new_group_path do
           %i.fa.fa-pencil-square-o.fa-lg
