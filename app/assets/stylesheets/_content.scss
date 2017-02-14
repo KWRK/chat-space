@@ -1,88 +1,163 @@
-$content-height: calc( 100% - 100px);
+@import "colors";
+$header-height: 100px;
+$list-margin: auto 20px;
 $chat-width: calc( 100vw - 300px );
 $chat-margin: 5px 5px 5px 40px;
 
 .content__left{
-  float:left;
-  overflow: auto;
-  height: $content-height;
-  width:300px;
-  background-color: #2f3e51;
-  ul{
-    padding:20px;
-    color:#fff;
-    .group-name{
-      font-size: 15px;
+  height: 100%;
+  float: left;
+  &__header {
+    position: fixed;
+    background-color: #253141;
+    height: $header-height;
+    width: 300px;
+    color: white;
+    p {
+      float: left;
+      line-height: $header-height;
+      margin: $list-margin;
+      font-size: 16px;
+      font-weight: bold;
     }
-    .current-chat{
-      margin-top:5px;
-      font-size: 11px;
+    ul{
+      float: right;
+      line-height: $header-height;
+      margin: $list-margin;
+      i {
+        color: white;
+      }
+    }
+  }
+  &__body{
+    margin-top: $header-height;
+    float: left;
+    overflow: auto;
+    height: calc( 100% - 100px);
+    width: 300px;
+    background-color: #2f3e51;
+    ul{
+      padding: 20px;
+      color: white;
+      .group-name{
+        font-size: 15px;
+      }
+      .current-chat{
+        margin-top: 5px;
+        font-size: 11px;
+      }
     }
   }
 }
 
 .content__right{
-  float:left;
-  overflow: auto;
-  height: $content-height;
-  width: $chat-width;
-  background-color: #fafafa;
-  .chat-data{
-    margin-top:40px;
-    .chat-body{
-      margin: $chat-margin;
-      clear:both;
+  height: 100%;
+  float: left;
+  &__header{
+    position: fixed;
+    right: 0px;
+    height: $header-height;
+    width: calc( 100vw - 300px );
+    display: flex;
+    background-color: white;
+    border-bottom: solid 1px ;
+    border-color: #eee;
+    .group-index{
+      float: left;
+      flex: initial;
+      width: calc( 100vw - 450px );
+      min-width: 525px;
+      .group-name{
+        padding: 35px 0px 10px 40px;
+        font-size: 20px;
+      }
+      ul{
+        padding: 0 35px;
+        font-size: 12px;
+        color: $pale-gray;
+        li{
+          float: left;
+          padding: 0 5px;
+        }
+      }
     }
-    ul{
-      li{
-        float:left;
-        font-size:12px;
-        color: #999;
-        margin:7px 5px;
-      }
-      .user-name{
-        color: #434A54;
-        font-size:16px;
-        font-weight: bold;
-        margin: $chat-margin;
-      }
+    .edit-btn a{
+      float: left;
+      line-height: 40px;
+      padding: 0px 20px;
+      margin: 28px 40px;
+      border: solid 2px;
+      border-color: $light-blue ;
+      font-size: 14px;
+      color: $light-blue ;
     }
   }
-  .chat-input{
-    height:50px;
-    width: calc( 100vw - 380px );;
-    background-color: #DDD;
-    position: fixed;
-    display:flex;
-    bottom: 0px;
-    right: 0px;
-    padding:20px 40px;
-    .input-space{
-      position:relative;
-      float:left;
-      textarea{
-        flex:initial;
-        line-height:50px;
-        resize:none;
-        padding:0px 10px;
-        font-size: 16px;
-        color: #434A54
+  &__body{
+    margin-top: $header-height;
+    position:fixed;
+    bottom: 90px;
+    right:0;
+    overflow: auto;
+    height: calc( 100% - 190px);
+    width: $chat-width;
+    background-color: #fafafa;
+    .chat-data{
+      margin-top: 40px;
+      .chat-body{
+        margin: $chat-margin;
+        clear: both;
       }
-      .fa.fa-picture-o{
-        position: absolute;
-        right: 10px;
-        line-height: 50px;
+      ul{
+        li{
+          float: left;
+          font-size: 12px;
+          color: $pale-gray;
+          margin: 7px 5px;
+        }
+        .user-name{
+          color: $hide-gray;
+          font-size:16px;
+          font-weight: bold;
+          margin: $chat-margin;
+        }
       }
     }
-    .send{
-      float:left;
-      flex:initial;
-      height:50px;
-      margin-left: 15px;
-      padding:0px 30px;
-      border: none;
-      background-color: #38AEF0;
-      color: #fff;
+    .chat-input{
+      height: 50px;
+      width: calc( 100vw - 380px );;
+      background-color: #DDD;
+      position: fixed;
+      display: flex;
+      bottom: 0px;
+      right: 0px;
+      padding: 20px 40px;
+      .input-space{
+        position: relative;
+        float: left;
+        textarea{
+          flex: initial;
+          line-height: 50px;
+          resize: none;
+          padding: 0px 10px;
+          font-size: 16px;
+          color: $hide-gray;
+        }
+        .fa.fa-picture-o{
+          position: absolute;
+          right: 10px;
+          line-height: 50px;
+        }
+      }
+      .send{
+        float: left;
+        flex: initial;
+        height: 50px;
+        margin-left: 15px;
+        padding: 0px 30px;
+        border: none;
+        background-color: $light-blue;
+        color: white;
+      }
     }
   }
 }
