@@ -3,15 +3,15 @@ class GroupsController < ApplicationController
   protect_from_forgery except: :Groups_post
 
   def index
-    @groups = current_user.groups.all
+    user_joined_groups
   end
 
   def show
+    user_joined_groups
     @group = Group.find(params[:id])
-    @groups = current_user.groups.all
     @users = Group.find(params[:id]).user.all
   end
- 
+
   def new
     @group = Group.new
   end
@@ -41,6 +41,10 @@ class GroupsController < ApplicationController
   end
 
   private
+
+  def user_joined_groups
+    @groups = current_user.groups
+  end
 
   def group_params
     params.require(:group).permit(:name, {user_ids: []})
