@@ -11,52 +11,14 @@
     .edit-btn
       = link_to edit_group_path do
         Edit
-
   .content__right__body
-    .chat-data
-      %ul
-        %li.user-name sample1
-        %li 2017/02/05
-        %li 00:00:01
-      .chat-body
-        すごーい！なにこれ！？すごーい！
-    .chat-data
-      %ul
-        %li.user-name sample2
-        %li 2017/02/05
-        %li 00:00:05
-      .chat-body
-        たーのしー！
-    .chat-data
-      %ul
-        %li.user-name sample3
-        %li 2017/02/05
-        %li 00:00:05
-      .chat-body
-        Rails、難しくって…
-    .chat-data
-      %ul
-        %li.user-name sample1
-        %li 2017/02/05
-        %li 00:00:05
-      .chat-body
-        へーきへーき！フレンズによってとくいなことちがうから！
-    .chat-data
-      %ul
-        %li.user-name sample2
-        %li 2017/02/05
-        %li 00:00:01
-      .chat-body
-        たーのしー！
-    .chat-data
-      %ul
-        %li.user-name sample3
-        %li 2017/02/05
-        %li 00:00:05
-      .chat-body
-        なにこれ！？たーのしー！
+    - if @chats
+      = render partial: 'chat', collection: @chats
+
     .chat-input
-      .input-space
-        %i.fa.fa-picture-o.fa-lg
-        %textarea{placeholder: "type a message", type: "textarea", name: "message", style: "width:calc( 100vw - 518px );height:50px;min-width:500px"}
-      %input.send{type: "submit", value: "Send"}
+      = form_tag("/groups/#{@group.id}/chats", method: :post) do
+        .input-space
+          %i.fa.fa-picture-o.fa-lg
+          %input{ name:"user_id", type: "hidden", value: "#{current_user.id}" }
+          %textarea{placeholder: "type a message", type: "textarea", name: "body", style: "width:calc( 100vw - 518px );height:50px;min-width:500px"}
+        %input.send{type: "submit", value: "Send"}
