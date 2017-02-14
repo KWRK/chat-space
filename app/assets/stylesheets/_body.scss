@@ -9,16 +9,5 @@ html,body{
 }
 
 a{
-  &:link {
-    text-decoration: none;
-  }
-  &:visited {
-    text-decoration: none;
-  }
-  &:hover {
-    text-decoration: none;
-  }
-  &:active {
-    text-decoration: none;
-  }
+  text-decoration: none;
 }

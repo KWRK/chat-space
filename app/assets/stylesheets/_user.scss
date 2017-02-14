@@ -1,10 +1,12 @@
+@import"colors";
+
 .account-page {
   &__inner {
     width: 980px;
     margin: 60px auto;
     padding: 60px;
     background-color: white;
-    border: 1px solid #ddd;
+    border: 1px solid $faint-border-gray;
     border-radius: 5px;
 
     &--left, &--right {
@@ -30,7 +32,7 @@
         display: block;
         width: 60px;
         margin-top: 5px;
-        border-bottom: 1px solid #38aef0;
+        border-bottom: 1px solid $light-blue;
       }
     }
 
@@ -42,7 +44,7 @@
 
     .btn {
       margin-top: 20px;
-      color: #fff;
+      color: white;
       background-color: #ccc;
       font-size: 14px;
     }
@@ -86,13 +88,13 @@
     float: left;
     margin-top: 20px;
     color: white;
-    background-color: #38aef0;
+    background-color: $light-blue;
   }
 
   &-label {
     .field_with_errors {
       display: inline-block;
-      color: #d65f4c;
+      color: $brick-red;
       font-weight: 400;
     }
   }
@@ -109,7 +111,7 @@
         right: 0;
         bottom: 0;
         width: 5px;
-        background-color: #d65f4c;
+        background-color: $brick-red;
       }
     }
   }
@@ -118,12 +120,12 @@
 #error_explanation {
   margin: 20px 0;
   padding: 20px 30px;
-  border: 1px solid #ddd;
+  border: 1px solid $faint-border-gray;
   border-radius: 2px;
 
   h2 {
     margin-bottom: 10px;
-    color: #d65f4c;
+    color: $brick-red;
     font-size: 14px;
   }
 
