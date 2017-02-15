@@ -1,0 +1,25 @@
+= render 'groups/left_content'
+
+.content__right
+  .content__right__header
+    .group-index
+      .group-name
+        = @group.name
+      %ul
+        %li Members:
+        = render partial: 'groups/user', collection: @group.user
+    .edit-btn
+      = link_to edit_group_path(@group) do
+        Edit
+
+  .content__right__body
+    - if @group.chats
+      = render partial: 'chat', collection: @group.chats
+    .chat-input
+      = form_for @chat, url:{ action: :create } do |f|
+        .input-space
+          %i.fa.fa-picture-o.fa-lg
+          = f.hidden_field :group_id, value: "#{ @group.id }"
+          = f.hidden_field :user_id, value: "#{ current_user.id }"
+          = f.text_field :body, placeholder: "type a message"
+        %input.send{ "data-disable-with" => "Save", name: "commit", type: "submit", value: "Save" }

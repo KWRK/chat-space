@@ -7,6 +7,9 @@
   z-index:1;
   text-align: center;
   color: white;
+  position:fixed;
+  top:0;
+  left:0;
   &-success{
     background-color: $light-blue;
   }

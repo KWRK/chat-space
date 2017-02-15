@@ -6,12 +6,6 @@ class GroupsController < ApplicationController
     user_joined_groups
   end
 
-  def show
-    user_joined_groups
-    @group = Group.find(params[:id])
-    @users = Group.find(params[:id]).user.all
-  end
-
   def new
     @group = Group.new
   end
@@ -31,12 +25,12 @@ class GroupsController < ApplicationController
   end
 
   def update
-    group = Group.find(params[:id])
-    if group.update(group_params)
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
       redirect_to group_path, notice:'グループ情報を更新しました'
     else
-      flash[:alert] = 'グループ情報の更新に失敗しました'
-      redirect_to edit_group_path
+      flash.now[:alert] = 'グループ情報の更新に失敗しました'
+      render action: :edit
     end
   end
 
