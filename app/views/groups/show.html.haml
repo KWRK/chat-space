@@ -11,14 +11,4 @@
     .edit-btn
       = link_to edit_group_path do
         Edit
-  .content__right__body
-    - if @chats
-      = render partial: 'chat', collection: @chats
-
-    .chat-input
-      = form_tag("/groups/#{@group.id}/chats", method: :post) do
-        .input-space
-          %i.fa.fa-picture-o.fa-lg
-          %input{ name:"user_id", type: "hidden", value: "#{current_user.id}" }
-          %textarea{placeholder: "type a message", type: "textarea", name: "body", style: "width:calc( 100vw - 518px );height:50px;min-width:500px"}
-        %input.send{type: "submit", value: "Send"}
+  = render template: "chats/index"
