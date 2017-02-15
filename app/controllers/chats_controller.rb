@@ -9,8 +9,13 @@ class ChatsController < ApplicationController
   end
 
   def create
-    @chat = Chat.create(chat_params)
-    redirect_to group_chats_path(@chat.group_id)
+    @chat = Chat.new(chat_params)
+    if @chat.save
+      redirect_to group_chats_path(@chat.group_id)
+    else
+      flash.now[:alert] = 'メッセージの送信に失敗しました'
+      render action: :index
+    end
   end
 
   private
