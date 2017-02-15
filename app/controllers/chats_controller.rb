@@ -15,7 +15,7 @@ class ChatsController < ApplicationController
     @chats = @group.chats
     @chat = Chat.new(chat_params)
     if @chat.save
-      redirect_to group_chats_path(@chat.group_id)
+      redirect_to group_chats_path(@chat.group_id) notice:'メッセージを投稿しました'
     else
       flash.now[:alert] = 'メッセージを入力して下さい'
       render action: :index
