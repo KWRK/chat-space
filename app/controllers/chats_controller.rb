@@ -1,18 +1,11 @@
 class ChatsController < ApplicationController
+  before_action :set_group
 
   def index
-    @groups = current_user.groups
-    @group = Group.find(params[:group_id])
-    @users = @group.user
-    @chats = @group.chats
     @chat = Chat.new
   end
 
   def create
-    @groups = current_user.groups
-    @group = Group.find(params[:group_id])
-    @users = @group.user
-    @chats = @group.chats
     @chat = Chat.new(chat_params)
     if @chat.save
       redirect_to group_chats_path(@chat.group_id), notice:'メッセージを投稿しました'
@@ -23,6 +16,10 @@ class ChatsController < ApplicationController
   end
 
   private
+
+  def set_group
+    @group = Group.find(params[:group_id])
+  end
 
   def chat_params
     params.require(:chat).permit(:body, :user_id, :group_id)
