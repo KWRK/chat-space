@@ -3,7 +3,6 @@
     %li.user-name
       = chat.user.name
     %li
-      - time = chat.created_at
-      = time.strftime('%Y/%m/%d  %H:%M:%S')
+      = chat.created_at.strftime('%Y/%m/%d  %H:%M:%S')
   .chat-body
     = chat.body
