@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id]).order('update_at DESC')
+    @group = Group.find(params[:id])
   end
 
   def update
