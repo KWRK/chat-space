@@ -4,4 +4,7 @@
       %li.group-name
         = group.name
       %li.current-chat
-        すごーい！
+        - if group.chats.last
+          = group.chats.last.body
+        - else
+          .nil_chat まだメッセージの投稿はありません
