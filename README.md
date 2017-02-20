@@ -13,7 +13,7 @@
 #### Users Table  (by gem 'devise')
 * columns and data type
 
-| columns       |  data type    |  contraint  |
+| columns       |  data type    |  constraint  |
 |:--------------|:--------------|:------------|
 | name          | string        | null: false |
 
@@ -27,7 +27,7 @@
 #### Chats Table
 * columns and data type
 
-| columns       |  data type    |  contraint                   |
+| columns       |  data type    |  constraint                   |
 |:--------------|:--------------|:-----------------------------|
 | body          | text          |                              |
 | image         | string        |                              |
@@ -42,7 +42,7 @@
 #### Groups Table
 * columns and data type
 
-| columns       |  data type    |  contraint  |
+| columns       |  data type    |  constraint  |
 |:--------------|:--------------|:------------|
 | name          | string        | null: fales |
 
@@ -56,7 +56,7 @@
 #### GroupsUsers Table
 * columns and data type
 
-| columns       |  data type    |  contraint        |
+| columns       |  data type    |  constraint        |
 |:--------------|:--------------|:------------------|
 | user          | references    | foreign_key: true |
 | group         | references    | foreign_key: true |
