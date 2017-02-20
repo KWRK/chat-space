@@ -6,6 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# To hide the DEPRECATION WARNING in rake rspec
+ActiveSupport::Deprecation.silenced = true
+
 module ChatSpace
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
