@@ -3,7 +3,6 @@ class GroupsController < ApplicationController
   protect_from_forgery except: :Groups_post
 
   def index
-    user_joined_groups
   end
 
   def new
@@ -27,7 +26,7 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     if @group.update(group_params)
-      redirect_to group_path, notice:'グループ情報を更新しました'
+      redirect_to group_chats_path(@group), notice:'グループ情報を更新しました'
     else
       flash.now[:alert] = 'グループ情報の更新に失敗しました'
       render action: :edit
@@ -35,10 +34,6 @@ class GroupsController < ApplicationController
   end
 
   private
-
-  def user_joined_groups
-    @groups = current_user.groups
-  end
 
   def group_params
     params.require(:group).permit(:name, {user_ids: []})
