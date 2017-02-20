@@ -4,4 +4,7 @@
       %li.group-name
         = group.name
       %li.current-chat
-        = group.chats.last.try!(:body) || "まだメッセージの投稿はありません"
+        - if group.chats.last
+          = group.chats.last.body
+        - else
+          .nil_chat まだメッセージの投稿はありません
