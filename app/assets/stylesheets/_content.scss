@@ -39,6 +39,9 @@ $chat-margin: 5px 5px 5px 40px;
     ul{
       padding: 20px;
       color: white;
+      &:hover{
+        background-color: #435162;
+      }
       .group-name{
         font-size: 15px;
       }
