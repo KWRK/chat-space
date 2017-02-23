@@ -1,0 +1,43 @@
+@import "colors";
+$chat-margin: 5px 5px 5px 40px;
+
+.js_chat-data{
+  margin-top: 40px;
+  .js_chat-body{
+    margin: $chat-margin;
+    clear: both;
+  }
+  ul{
+    li{
+      float: left;
+      font-size: 12px;
+      color: $pale-gray;
+      margin: 7px 5px;
+    }
+    #js_user_name{
+      color: $hide-gray;
+      font-size:16px;
+      font-weight: bold;
+      margin: $chat-margin;
+    }
+  }
+}
+
+#js_chat-input__guard{
+  line-height: 50px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  width: calc( 100vw - 380px );;
+  background-color: #DDD;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  padding: 20px 40px;
+  z-index:1;
+  a{
+    color: white;
+    text-weight: bold;
+    text-decoration: underline;
+  }
+}
