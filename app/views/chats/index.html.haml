@@ -12,14 +12,14 @@
       = link_to edit_group_path(@group) do
         Edit
 
-  .content__right__body
+  .content__right__body#content__right__body
     - if @group.chats
       = render partial: 'chat', collection: @group.chats
     .chat-input
       = form_for @chat, url:{ action: :create } do |f|
-        .input-space
+        .chat-input__area
           %i.fa.fa-picture-o.fa-lg
           = f.hidden_field :group_id, value: "#{ @group.id }"
           = f.hidden_field :user_id, value: "#{ current_user.id }"
-          = f.text_field :body, placeholder: "type a message"
-        %input.send{ "data-disable-with" => "Save", name: "commit", type: "submit", value: "Save" }
+          = f.text_field :body, placeholder: "type a message",class: "chat-input__area__textfield js-input"
+        %input{ "data-disable-with" => "Save", name: "commit", type: "submit", value: "Save" ,class: "chat-input__send"}
