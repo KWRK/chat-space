@@ -12,7 +12,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to group_path(@group), notice:'新しいグループを作成しました'
+      redirect_to group_chats_path(@group), notice:'新しいグループを作成しました'
     else
       flash.now[:alert] = 'グループの作成に失敗しました'
       render action: :new
