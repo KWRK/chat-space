@@ -41,7 +41,7 @@ $(window).bind("load", function(){
         $('.js_chat-body').append(bodyHtml);
         $('#js_user_name').append(userHtml);
         $('#js_create_time').append(timeHtml);
-        bodyField.val('');
+        $("#chat_body").val('');
         $('#content__right__body').animate( { scrollTop:(scrollHeight) },1500 );  // 新しいチャットをフェードイン（っぽくみせる）
         $('#content__right__body').append('<div id="js_chat-input__guard">続けてメッセージを送信するには<a href= "chats">リロード</a>して下さい。</div>'); //連続投稿できない事をつたえる表示
         $('body').append('<div class="alert alert-success">メッセージを投稿しました</div>');
