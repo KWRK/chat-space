@@ -1,10 +1,11 @@
+@import "colors";
+
 .chat-group-form {
   width: 980px;
-  height: 400px;
   margin: 60px auto;
   padding: 40px;
   background-color: white;
-  border: 1px solid #ddd;
+  border: 1px solid $faint-border-gray;
   border-radius: 5px;
   box-sizing: border-box;
 
@@ -12,12 +13,13 @@
     letter-spacing: 2px;
     font-size: 24px;
     text-align: center;
+    font-weight: bold;
   }
 
   &__errors {
     margin: 30px 0;
     padding: 20px 40px;
-    border: 1px solid #ddd;
+    border: 1px solid $faint-border-gray;
     border-radius: 2px;
     text-align: center;
 
@@ -78,7 +80,7 @@
     padding: 0 15px;
     line-height: 50px;
     font-size: 14px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid $faint-border-gray;
 
     &__name {
       float: left;
@@ -90,20 +92,49 @@
       cursor: pointer;
 
       &--add {
-        color: #38aef0;
+        color: $light-blue;
       }
 
       &--remove {
-        color: #f05050;
+        color: $light-blue;
       }
     }
   }
 
   &__action-btn {
+    float: left;
     display: inline-block;
     padding: 12px 20px;
     color: white;
-    background-color: #38aef0;
+    background-color: $light-blue;
     border: 0;
+  }
+}
+
+.member_list{
+  border-bottom:1px solid $faint-border-gray;
+  padding: 0px 10px;
+  &:hover{
+    background-color: #cbf1ff;
+  }
+}
+.joined-list{
+  padding: 10px 5px;
+  &__user{
+    float:left;
+    line-height: 15px;
+    width: initial;
+    padding: 10px;
+    margin: 2px;
+    -webkit-border-radius: 10px;    /* Safari,Google Chrome用 */
+    -moz-border-radius: 10px;       /* FireFox用 */
+    border: 1px solid $faint-border-gray;
+    &:hover{
+      background-color: #f6cef5;
+    }
+    .fa-times{
+      margin-left:20px;
+      color:red;
+    }
   }
 }
