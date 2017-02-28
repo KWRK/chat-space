@@ -9,15 +9,13 @@
       = f.label :group_member , 'チャットメンバーを追加', class: 'chat-group-form__label'
     .chat-group-form__field--right
       .chat-group-form__search.clearfix
-        %label.chat-group-form__label{ for: "group_チャットメンバーを追加" }
-        = f.collection_check_boxes :user_ids, User.all, :id, :name do |b|
-          - b.label{ b.check_box + b.text }
-        #user-search-result
-
+        %input{ placeholder: "メンバーに追加したいユーザーを検索", class: "chat-group-form__input", id: "chat_group_member", type: "text" }
+      %ul#user-search-result
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       = f.label :group , 'チャットメンバー', class: 'chat-group-form__label'
-      .chat-group-form__field.clearfix
-        .chat-group-form__field--left
-        .chat-group-form__field--right
-          %input.chat-group-form__action-btn{ "data-disable-with" => "Save", name: "commit", type: "submit", value: "Save" }/
+    .chat-group-form__field--right
+      .joined-list.clearfix
+        = render partial:'groups/forms/user', collection: @group.user , locals:{ f:f }
+
+      %input.chat-group-form__action-btn{ "data-disable-with" => "Save", name: "commit", type: "submit", value: "Save" }

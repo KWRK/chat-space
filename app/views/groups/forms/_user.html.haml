@@ -1,0 +1,4 @@
+.joined-list__user
+  %input{ value: "#{ user.id }", type: "hidden", name: "group[user_ids][]", id: "group_user_ids" }
+  = user.name
+  %i.fa.fa-times

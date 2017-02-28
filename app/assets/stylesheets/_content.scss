@@ -43,11 +43,19 @@ $chat-margin: 5px 5px 5px 40px;
         background-color: #435162;
       }
       .group-name{
+        height:23px;
         font-size: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       .current-chat{
+        height:17px;
         margin-top: 5px;
         font-size: 11px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         .nil_chat{
           color: $pale-gray;
         }

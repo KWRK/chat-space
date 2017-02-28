@@ -7,6 +7,10 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    respond_to do |format|
+      format.html { render :new }
+      format.json { render "group" }
+    end
   end
 
   def create
@@ -20,7 +24,11 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
+    @group = Group.includes(:user).find(params[:id])
+    respond_to do |format|
+      format.html { render :edit }
+      format.json { render "group" }
+    end
   end
 
   def update
