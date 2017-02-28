@@ -1,7 +1,7 @@
 $(function() {
 
-  var userslist;
-
+  var preWord; //文字以外でインクリメントサーチの通信をしないための準備
+  var usersList;  //メンバーに加える候補者のリスト
   var list = $('#user-search-result');
 
   function appendList(word) {
@@ -30,30 +30,33 @@ $(function() {
     var inputs = input.split(" ").filter(function(e) { return e; });  // [ a, b ]
     var newInputs = inputs.map(editElement); // ^[ a, b ]
     var word = newInputs.join("|"); // ^a|^b
-    var reg = RegExp(word); //対象の文字列の値のはじめの文字はa か b、とする正規表現
-    $.ajax({
-      type: 'GET',
-      url: '/groups/new.json',
-    })
-    .done(function(users){
-      var userNames = users.map(pickNames); //Json産のUser.allからnameだけの配列を作っています。
-      $('.member_list').remove();
-      if ( input.length !== 0 ) {
-        $.each( userNames , function(i , name) {
-          if (name.match(reg)) {
-            appendList( name );
-          }
-        });
-      }
-      userslist = users;
-      return userslist;
-    });
+    var reg = RegExp( word); //対象の文字列の値のはじめの文字はa か b、とする正規表現
+    if ( input.length !== 0 && word != preWord ) {
+      $.ajax({
+        type: 'GET',
+        url: '/groups/new.json',
+        data: {
+          key: input
+        }
+      })
+      .done(function(users){
+        var userNames = users.map(pickNames); //Json産のUser.allからnameだけの配列を作っています。
+        $('.member_list').remove();
+          $.each( userNames , function(i , name) {
+            if (name.match(reg)) {
+              appendList( name );
+            }
+          });
+        preWord = word;
+        usersList = users;
+        return usersList,preWord;
+      });
+    }
   });
 
   $(document).on("click",".member_list", function (){
-    console.log( userslist );
-    var ids = userslist.map(pickIds); //Json産のUser.allからidだけの配列を作っています。
-    var names = userslist.map(pickNames); //Json産のUser.allからnameだけの配列を作っています。
+    var ids = usersList.map(pickIds); //Json産のUser.allからidだけの配列を作っています。
+    var names = usersList.map(pickNames); //Json産のUser.allからnameだけの配列を作っています。
     var selectName = $(this).html();
     var pos = names.indexOf( selectName ); //選択されたnameのインデックスを返しています。
     var selectId = ids[ pos ]; //nameのインデックスに対応するidを返しています。
@@ -70,7 +73,6 @@ $(function() {
   $(document).on("click",".joined-list__user", function(){
     div = $(this).remove();
   });
-
 });
 
 /*
