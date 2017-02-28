@@ -30,7 +30,7 @@ $(function() {
     var inputs = input.split(" ").filter(function(e) { return e; });  // [ a, b ]
     var newInputs = inputs.map(editElement); // ^[ a, b ]
     var word = newInputs.join("|"); // ^a|^b
-    var reg = RegExp( word); //対象の文字列の値のはじめの文字はa か b、とする正規表現
+    var reg = RegExp(word); //対象の文字列の値のはじめの文字はa か b、とする正規表現
     if ( input.length !== 0 && word != preWord ) {
       $.ajax({
         type: 'GET',
@@ -44,7 +44,7 @@ $(function() {
         $('.member_list').remove();
           $.each( userNames , function(i , name) {
             if (name.match(reg)) {
-              appendList( name );
+              appendList(name);
             }
           });
         preWord = word;
