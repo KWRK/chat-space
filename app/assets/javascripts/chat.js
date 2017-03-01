@@ -18,10 +18,8 @@ $(window).bind("load", function(){
       .done(function(data) {  //データが取得できたとき、定形にして出力してから入力部をカラにして、も一回スクロール
         var bodyHtml = data.body;
         var imageHtml = data.image.url;
-        console.log( imageHtml);
         var userHtml = data.name;
         var timeHtml = data.time;
-        console.log( imageHtml);
         $('.content__right__body').append( `
           <div class="js_chat-data">
             <ul>
