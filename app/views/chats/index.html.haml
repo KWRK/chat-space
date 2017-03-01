@@ -18,7 +18,9 @@
     .chat-input
       = form_for @chat, url:{ action: :create } do |f|
         .chat-input__area
-          %i.fa.fa-picture-o.fa-lg
+          = f.label :image do
+            %i.fa.fa-picture-o.fa-lg
+          = f.file_field :image, accept:"jge, jpeg, png"
           = f.hidden_field :group_id, value: "#{ @group.id }"
           = f.hidden_field :user_id, value: "#{ current_user.id }"
           = f.text_field :body, placeholder: "type a message",class: "chat-input__area__textfield js-input"
