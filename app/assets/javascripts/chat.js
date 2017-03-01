@@ -4,41 +4,36 @@ $(window).bind("load", function(){
     var scrollHeight = $( "#content__right__body" )[0].scrollHeight ;
     $("#content__right__body").scrollTop(scrollHeight);
 
-    function buildBodyHTML(data) {
-      var bodyHtml = data.body;
-      return bodyHtml;
-    }
-    function buildUserHTML(data) {
-      var userHtml = data.name;
-      return userHtml;
-    }
-    function buildTimeHTML(data) {
-      var timeHtml = data.time;
-      return timeHtml;
-    }
-
     $(".new_chat").on('submit', function(e) { //submit時にメッセージ入力部のデータを取得
       e.preventDefault();
-      var body = $('.js-input').val();
-      var group = $('#chat_group_id').val();
-      var user = $('#chat_user_id').val();
-      $.ajax({  //取得したデータにparamsの紐付けをして、./chats.jsonにPOST
+      var fd = new FormData($('#new_chat').get(0));
+      fd.append('image', $('input[type=file]')[0].files[0]);
+      $.ajax({  //chats.jsonにPOST
         type: 'POST',
         url: './chats.json',
-        data: {
-          chat: {
-            body: body,
-            group_id: group,
-            user_id: user,
-          }
-        },
+        data: fd,
+        processData: false,
+        contentType: false
       })
       .done(function(data) {  //データが取得できたとき、定形にして出力してから入力部をカラにして、も一回スクロール
-        var bodyHtml = buildBodyHTML(data);
-        var userHtml = buildUserHTML(data);
-        var timeHtml = buildTimeHTML(data);
-        $('.content__right__body').append('<div class="js_chat-data"><ul><li id="js_user_name"></li><li id="js_create_time"></li></ul><div class="js_chat-body"></div></div>');
-        $('.js_chat-body').append(bodyHtml);
+        var bodyHtml = data.body;
+        var imageHtml = data.image.url;
+        console.log( imageHtml);
+        var userHtml = data.name;
+        var timeHtml = data.time;
+        console.log( imageHtml);
+        $('.content__right__body').append( `
+          <div class="js_chat-data">
+            <ul>
+              <li id="js_user_name"></li>
+              <li id="js_create_time"></li>
+            </ul>
+            <div id="js_chat-body"></div>
+            <img id="js_chat-image" alt="画像の投稿に失敗しました" src="${imageHtml}">
+          </div>
+          `);
+        $('#js_chat-body').append(bodyHtml);
+        $('#js_chat-image').append(imageHtml);
         $('#js_user_name').append(userHtml);
         $('#js_create_time').append(timeHtml);
         $("#chat_body").val('');
