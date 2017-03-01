@@ -121,6 +121,10 @@ $chat-margin: 5px 5px 5px 40px;
         margin: $chat-margin;
         clear: both;
       }
+      .chat-image{
+        margin: $chat-margin;
+        clear:both;
+      }
       ul{
         li{
           float: left;
@@ -158,10 +162,14 @@ $chat-margin: 5px 5px 5px 40px;
           font-size: 16px;
           color: $hide-gray;
         }
+        #chat_image{
+          display:none;
+        }
         .fa.fa-picture-o{
           position: absolute;
           right: 10px;
           line-height: 50px;
+          cursor:pointer;
         }
       }
       &__send{

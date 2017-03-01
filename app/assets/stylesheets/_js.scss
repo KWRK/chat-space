@@ -3,9 +3,12 @@ $chat-margin: 5px 5px 5px 40px;
 
 .js_chat-data{
   margin-top: 40px;
-  .js_chat-body{
+  #js_chat-body{
     margin: $chat-margin;
     clear: both;
+  }
+  #js_chat-image{
+    margin: $chat-margin;
   }
   ul{
     li{
