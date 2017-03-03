@@ -3,6 +3,10 @@ class ChatsController < ApplicationController
 
   def index
     @chat = Chat.new
+    respond_to do |format|
+      format.html { render "index"}
+      format.json { render "index"}
+    end
   end
 
   def create

@@ -26,26 +26,21 @@ $(function() {
 
 
   $("#chat_group_member").on("keyup", function(){
-    var input = $("#chat_group_member").val();  // a b
-    var inputs = input.split(" ").filter(function(e) { return e; });  // [ a, b ]
-    var newInputs = inputs.map(editElement); // ^[ a, b ]
-    var word = newInputs.join("|"); // ^a|^b
-    var reg = RegExp(word); //対象の文字列の値のはじめの文字はa か b、とする正規表現
-    if ( input.length !== 0 && word != preWord ) {
+    var input = $("#chat_group_member").val();
+    var word = input.replace(/^\s+|\s/g, "");
+    if ( word.length !== 0 && word != preWord ) {
       $.ajax({
         type: 'GET',
         url: '/groups/new.json',
         data: {
-          key: input
+          key: word,
         }
       })
       .done(function(users){
-        var userNames = users.map(pickNames); //Json産のUser.allからnameだけの配列を作っています。
+        var userNames = users.map(pickNames); //Json産のresults.allからnameだけの配列を作っています。
         $('.member_list').remove();
           $.each( userNames , function(i , name) {
-            if (name.match(reg)) {
-              appendList(name);
-            }
+            appendList(name);
           });
         preWord = word;
         usersList = users;
