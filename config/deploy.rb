@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '<Capistranoのバージョン>'
+lock '3.7.2'
 
 set :application, 'chat-space'
 set :repo_url, 'git@github.com:/KWRK/chat-space.git'
@@ -10,7 +10,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
 
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['usr/.ssh/keigo-ohkawara-02.pem']
+                  keys: ['.ssh/keigo-ohkawara-02.pem']
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
