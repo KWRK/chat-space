@@ -17,6 +17,8 @@ class ChatsController < ApplicationController
         format.html { redirect_to group_chats_path(@chat.group_id), notice:'メッセージを投稿しました' }
         format.json { render "chat" }
       end
+      slack = Slack::Incoming::Webhooks.new ENV['SLACK_WEB_HOCK_URL']
+      slack.post "Chat-spaceの[#{@chat.group.name}]に[#{@chat.user.name}]さんが新規メッセージを投稿したよ"
     else
       flash.now[:alert] = 'メッセージを入力して下さい'
       render action: :index
