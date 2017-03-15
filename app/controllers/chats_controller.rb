@@ -1,5 +1,6 @@
 class ChatsController < ApplicationController
   before_action :set_group
+  require 'slack/incoming/webhooks'
 
   def index
     @chat = Chat.new
